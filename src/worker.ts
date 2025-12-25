@@ -1,28 +1,33 @@
-import { pipeline, TextStreamer } from '@huggingface/transformers';
+import * as Comlink from "comlink";
+import { pipeline } from "@huggingface/transformers";
+import type { Translator } from "@/lib/translatorTypes";
 
-class TranslationPipeline {
-    static task = 'translation';
-    static model = 'Xenova/nllb-200-distilled-600M';
-    static instance: any = null;
+const MODEL_ID = "Xenova/nllb-200-distilled-600M";
+const DEFAULT_TGT_LANG = "eng_Latn";
 
-    static async getInstance(progress_callback: any = null) {
-        this.instance ??= pipeline(this.task, this.model, { progress_callback });
-        return this.instance;
-    }
+let translatorPromise: Promise<Translator> | null = null;
+
+function getTranslator(): Promise<Translator> {
+  translatorPromise ??= pipeline(
+    "translation",
+    MODEL_ID
+  ) as unknown as Promise<Translator>;
+  return translatorPromise;
 }
 
-self.addEventListener('message', async (event) => {
-    const translator = await TranslationPipeline.getInstance((x: any) => {
-        self.postMessage(x);
-    });
+const translatorAPI = {
+  async translate(text: string, srcLang: string): Promise<string> {
+    if (!text.trim() || srcLang === DEFAULT_TGT_LANG) return text;
 
-    const output = await translator(event.data.text, {
-        tgt_lang: 'eng_Latn',
-        src_lang: 'por_Latn',
+    const translator = await getTranslator();
+    const output = await translator(text, {
+      src_lang: srcLang,
+      tgt_lang: DEFAULT_TGT_LANG,
     });
+    return output[0]?.translation_text ?? "";
+  },
+};
 
-    self.postMessage({
-        status: 'complete',
-        output: output[0].translation_text,
-    });
-});
+export type TranslatorAPI = typeof translatorAPI;
+
+Comlink.expose(translatorAPI);
