@@ -1,4 +1,4 @@
-import { IconVolume } from "@tabler/icons-react"
+import { IconVolume } from "@tabler/icons-react";
 
 export function SidebarHeader() {
   return (
@@ -16,6 +16,5 @@ export function SidebarHeader() {
         </div>
       </div>
     </header>
-  )
+  );
 }
-

@@ -1,19 +1,19 @@
-import { IconUser, IconRobot } from "@tabler/icons-react"
+import { IconRobot, IconUser } from "@tabler/icons-react";
 
-type MessageSender = "user" | "bot"
+type MessageSender = "user" | "bot";
 
 type Message = {
-  id: number
-  text: string
-  sender: MessageSender
-}
+  id: number;
+  text: string;
+  sender: MessageSender;
+};
 
 type MessageBubbleProps = {
-  message: Message
-}
+  message: Message;
+};
 
 export function MessageBubble({ message }: MessageBubbleProps) {
-  const isUser = message.sender === "user"
+  const isUser = message.sender === "user";
 
   return (
     <div className={`flex flex-col ${isUser ? "items-end" : "items-start"}`}>
@@ -39,8 +39,7 @@ export function MessageBubble({ message }: MessageBubbleProps) {
         {message.text}
       </div>
     </div>
-  )
+  );
 }
 
-export type { Message, MessageSender }
-
+export type { Message, MessageSender };

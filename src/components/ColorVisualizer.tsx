@@ -1,6 +1,6 @@
 type ColorVisualizerProps = {
-  color: string
-}
+  color: string;
+};
 
 export function ColorVisualizer({ color }: ColorVisualizerProps) {
   return (
@@ -20,6 +20,5 @@ export function ColorVisualizer({ color }: ColorVisualizerProps) {
         <div className="w-1/2 h-1/2 bg-white/10 rounded-full blur-3xl animate-pulse" />
       </div>
     </div>
-  )
+  );
 }
-

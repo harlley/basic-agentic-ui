@@ -1,7 +1,7 @@
 import { AgenticInterface } from "@/components/AgenticInterface";
 
 export function App() {
-    return <AgenticInterface />;
+  return <AgenticInterface />;
 }
 
 export default App;

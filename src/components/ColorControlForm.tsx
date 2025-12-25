@@ -1,49 +1,49 @@
-import { useState, type FormEvent } from "react"
-import { IconArrowRight, IconLoader2 } from "@tabler/icons-react"
+import { IconArrowRight, IconLoader2 } from "@tabler/icons-react";
+import { type FormEvent, useState } from "react";
 import {
   InputGroup,
-  InputGroupInput,
   InputGroupButton,
-} from "@/components/ui/input-group"
+  InputGroupInput,
+} from "@/components/ui/input-group";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "@/components/ui/select";
 import {
   DEFAULT_SOURCE_LANG,
-  SOURCE_LANGUAGES,
   isSourceLanguage,
-  sourceLanguageLabel,
+  SOURCE_LANGUAGES,
   type SourceLanguage,
-} from "@/lib/translationLanguages"
+  sourceLanguageLabel,
+} from "@/lib/translationLanguages";
 
 type ColorControlFormProps = {
-  onColorChange: (color: string) => void
-  translate: (text: string, srcLang: string) => Promise<string>
-  isLoading: boolean
-}
+  onColorChange: (color: string) => void;
+  translate: (text: string, srcLang: string) => Promise<string>;
+  isLoading: boolean;
+};
 
 export function ColorControlForm({
   onColorChange,
   translate,
   isLoading,
 }: ColorControlFormProps) {
-  const [inputValue, setInputValue] = useState("")
+  const [inputValue, setInputValue] = useState("");
   const [sourceLang, setSourceLang] =
-    useState<SourceLanguage>(DEFAULT_SOURCE_LANG)
+    useState<SourceLanguage>(DEFAULT_SOURCE_LANG);
 
   const handleSubmit = async (e?: FormEvent) => {
-    e?.preventDefault()
-    const trimmedInput = inputValue.trim()
-    if (!trimmedInput) return
+    e?.preventDefault();
+    const trimmedInput = inputValue.trim();
+    if (!trimmedInput) return;
 
-    const translated = await translate(trimmedInput, sourceLang)
-    onColorChange(translated.trim().toLowerCase())
-    setInputValue("")
-  }
+    const translated = await translate(trimmedInput, sourceLang);
+    onColorChange(translated.trim().toLowerCase());
+    setInputValue("");
+  };
 
   return (
     <form onSubmit={handleSubmit} className="w-full space-y-3">
@@ -54,7 +54,7 @@ export function ColorControlForm({
         <Select
           value={sourceLang}
           onValueChange={(value) => {
-            if (isSourceLanguage(value)) setSourceLang(value)
+            if (isSourceLanguage(value)) setSourceLang(value);
           }}
         >
           <SelectTrigger className="w-full justify-between">
@@ -93,6 +93,5 @@ export function ColorControlForm({
         </InputGroupButton>
       </InputGroup>
     </form>
-  )
+  );
 }
-

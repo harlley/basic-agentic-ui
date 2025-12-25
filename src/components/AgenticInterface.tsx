@@ -1,18 +1,18 @@
-import { useColorStore } from "@/store/useColorStore"
-import { useTranslator } from "@/hooks/useTranslator"
-import { ChatSidebar } from "./ChatSidebar"
-import { ColorVisualizer } from "./ColorVisualizer"
-import { ColorControlForm } from "./ColorControlForm"
-import type { Message } from "./MessageBubble"
+import { useTranslator } from "@/hooks/useTranslator";
+import { useColorStore } from "@/store/useColorStore";
+import { ChatSidebar } from "./ChatSidebar";
+import { ColorControlForm } from "./ColorControlForm";
+import { ColorVisualizer } from "./ColorVisualizer";
+import type { Message } from "./MessageBubble";
 
 const MESSAGES: readonly Message[] = [
   { id: 1, text: "Hi, how can I help you?", sender: "bot" },
   { id: 2, text: "Change the square color to green", sender: "user" },
-]
+];
 
 export function AgenticInterface() {
-  const { squareColor, setSquareColor } = useColorStore()
-  const { translate, isLoading } = useTranslator()
+  const { squareColor, setSquareColor } = useColorStore();
+  const { translate, isLoading } = useTranslator();
 
   return (
     <div className="flex flex-col md:flex-row h-screen w-screen overflow-hidden bg-background text-foreground font-sans selection:bg-primary/30">
@@ -34,5 +34,5 @@ export function AgenticInterface() {
         </div>
       </main>
     </div>
-  )
+  );
 }

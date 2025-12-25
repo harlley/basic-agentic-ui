@@ -1,15 +1,15 @@
-import { IconSend } from "@tabler/icons-react"
+import { IconSend } from "@tabler/icons-react";
 import {
   InputGroup,
-  InputGroupInput,
   InputGroupButton,
-} from "@/components/ui/input-group"
-import { SidebarHeader } from "./SidebarHeader"
-import { MessageBubble, type Message } from "./MessageBubble"
+  InputGroupInput,
+} from "@/components/ui/input-group";
+import { type Message, MessageBubble } from "./MessageBubble";
+import { SidebarHeader } from "./SidebarHeader";
 
 type ChatSidebarProps = {
-  messages: readonly Message[]
-}
+  messages: readonly Message[];
+};
 
 export function ChatSidebar({ messages }: ChatSidebarProps) {
   return (
@@ -38,6 +38,5 @@ export function ChatSidebar({ messages }: ChatSidebarProps) {
         </InputGroup>
       </footer>
     </aside>
-  )
+  );
 }
-

@@ -2,5 +2,5 @@ export type TranslationResult = { translation_text: string };
 
 export type Translator = (
   text: string,
-  options: { src_lang: string; tgt_lang: string }
+  options: { src_lang: string; tgt_lang: string },
 ) => Promise<TranslationResult[]>;

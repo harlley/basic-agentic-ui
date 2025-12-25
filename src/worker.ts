@@ -1,5 +1,5 @@
-import * as Comlink from "comlink";
 import { pipeline } from "@huggingface/transformers";
+import * as Comlink from "comlink";
 import type { Translator } from "@/lib/translatorTypes";
 
 const MODEL_ID = "Xenova/nllb-200-distilled-600M";
@@ -10,7 +10,7 @@ let translatorPromise: Promise<Translator> | null = null;
 function getTranslator(): Promise<Translator> {
   translatorPromise ??= pipeline(
     "translation",
-    MODEL_ID
+    MODEL_ID,
   ) as unknown as Promise<Translator>;
   return translatorPromise;
 }
