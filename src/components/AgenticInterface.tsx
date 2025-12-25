@@ -10,16 +10,32 @@ import { useColorStore } from "@/store/useColorStore"
 export function AgenticInterface() {
     const { squareColor, setSquareColor } = useColorStore()
     const [inputValue, setInputValue] = React.useState("")
+    const [isTranslating, setIsTranslating] = React.useState(false)
+    const workerRef = React.useRef<Worker | null>(null)
 
     const [messages] = React.useState([
         { id: 1, text: "Hi, how can I help you?", sender: "bot" },
         { id: 2, text: "Change the square color to green", sender: "user" },
     ])
 
+    React.useEffect(() => {
+        workerRef.current = new Worker(new URL('../worker.ts', import.meta.url), { type: 'module' })
+
+        workerRef.current.onmessage = (e) => {
+            if (e.data.status === 'complete') {
+                setSquareColor(e.data.output.trim().toLowerCase())
+                setIsTranslating(false)
+            }
+        }
+
+        return () => workerRef.current?.terminate()
+    }, [setSquareColor])
+
     const handleColorUpdate = (e?: React.FormEvent) => {
         e?.preventDefault()
-        if (inputValue.trim()) {
-            setSquareColor(inputValue.trim().toLowerCase())
+        if (inputValue.trim() && workerRef.current) {
+            setIsTranslating(true)
+            workerRef.current.postMessage({ text: inputValue.trim() })
             setInputValue("")
         }
     }
