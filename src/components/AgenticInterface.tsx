@@ -6,12 +6,24 @@ import {
     InputGroupButton
 } from "@/components/ui/input-group"
 import { IconSend, IconArrowRight, IconUser, IconRobot, IconVolume } from "@tabler/icons-react"
+import { useColorStore } from "@/store/useColorStore"
 
 export function AgenticInterface() {
+    const { squareColor, setSquareColor } = useColorStore()
+    const [inputValue, setInputValue] = React.useState("")
+
     const [messages] = React.useState([
         { id: 1, text: "Hi, how can I help you?", sender: "bot" },
         { id: 2, text: "Change the square color to green", sender: "user" },
     ])
+
+    const handleColorUpdate = (e?: React.FormEvent) => {
+        e?.preventDefault()
+        if (inputValue.trim()) {
+            setSquareColor(inputValue.trim().toLowerCase())
+            setInputValue("")
+        }
+    }
 
     return (
         <div className="flex flex-col md:flex-row h-screen w-screen overflow-hidden bg-background text-foreground font-sans selection:bg-primary/30">
@@ -86,11 +98,15 @@ export function AgenticInterface() {
                 <div className="flex flex-col items-center gap-12 z-10 w-full max-w-[320px] md:max-w-sm">
                     {/* The Square Visualizer */}
                     <div className="relative group w-full">
-                        <div className="absolute inset-0 bg-primary/30 rounded-[2.5rem] blur-2xl group-hover:blur-3xl transition-all duration-500 opacity-50" />
                         <div
-                            className="relative w-full aspect-square rounded-[2.5rem] shadow-2xl transition-all duration-1000 bg-primary flex items-center justify-center overflow-hidden"
+                            className="absolute inset-0 rounded-[2.5rem] blur-2xl group-hover:blur-3xl transition-all duration-500 opacity-50"
+                            style={{ backgroundColor: squareColor }}
+                        />
+                        <div
+                            className="relative w-full aspect-square rounded-[2.5rem] shadow-2xl transition-all duration-1000 flex items-center justify-center overflow-hidden"
                             style={{
-                                background: 'linear-gradient(135deg, var(--color-primary) 0%, oklch(from var(--color-primary) calc(l - 0.1) c h) 100%)'
+                                backgroundColor: squareColor,
+                                boxShadow: `0 20px 50px -12px ${squareColor}`
                             }}
                         >
                             <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -99,20 +115,30 @@ export function AgenticInterface() {
                     </div>
 
                     {/* Local Control Area */}
-                    <div className="w-full space-y-3">
+                    <form
+                        onSubmit={handleColorUpdate}
+                        className="w-full space-y-3"
+                    >
                         <p className="text-[10px] text-center font-bold uppercase tracking-[0.2em] text-muted-foreground opacity-50">Manual Override</p>
                         <InputGroup className="bg-card/40 backdrop-blur-xl border-border/50 h-14 rounded-2xl shadow-xl shadow-black/5 ring-offset-background focus-within:ring-2 focus-within:ring-primary/20 transition-all">
                             <InputGroupInput
+                                value={inputValue}
+                                onChange={(e) => setInputValue(e.target.value)}
                                 placeholder="write color to update"
                                 className="text-center text-lg font-medium placeholder:font-normal placeholder:opacity-50"
                             />
-                            <InputGroupButton variant="ghost" className="mr-1 h-12 w-12 rounded-xl bg-primary/10 hover:bg-primary transition-all group/btn">
+                            <InputGroupButton
+                                type="submit"
+                                variant="ghost"
+                                className="mr-1 h-12 w-12 rounded-xl bg-primary/10 hover:bg-primary transition-all group/btn"
+                            >
                                 <IconArrowRight size={22} className="text-primary group-hover/btn:text-white transition-colors" />
                             </InputGroupButton>
                         </InputGroup>
-                    </div>
+                    </form>
                 </div>
             </main>
         </div>
     )
 }
+
