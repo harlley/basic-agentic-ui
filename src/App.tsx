@@ -1,7 +1,7 @@
-import { ComponentExample } from "@/components/component-example";
+import { AgenticInterface } from "@/components/AgenticInterface";
 
 export function App() {
-return <ComponentExample />;
+    return <AgenticInterface />;
 }
 
 export default App;

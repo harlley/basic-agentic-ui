@@ -20,5 +20,7 @@
   },
   "menuColor": "default",
   "menuAccent": "bold",
-  "registries": {}
+  "registries": {
+    "@elevenlabs-ui": "https://ui.elevenlabs.io/r/{name}.json"
+  }
 }
