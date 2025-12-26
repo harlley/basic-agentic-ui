@@ -27,6 +27,7 @@ export function useTranslator() {
     if (!api) return text;
 
     setIsLoading(true);
+
     try {
       return await api.translate(text, srcLang);
     } finally {

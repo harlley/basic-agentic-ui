@@ -10,7 +10,7 @@ let translatorPromise: Promise<Translator> | null = null;
 function getTranslator(): Promise<Translator> {
   translatorPromise ??= pipeline(
     "translation",
-    MODEL_ID,
+    MODEL_ID
   ) as unknown as Promise<Translator>;
   return translatorPromise;
 }
@@ -20,10 +20,12 @@ const translatorAPI = {
     if (!text.trim() || srcLang === DEFAULT_TGT_LANG) return text;
 
     const translator = await getTranslator();
+
     const output = await translator(text, {
       src_lang: srcLang,
       tgt_lang: DEFAULT_TGT_LANG,
     });
+
     return output[0]?.translation_text ?? "";
   },
 };

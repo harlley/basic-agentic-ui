@@ -6,6 +6,6 @@ interface ColorState {
 }
 
 export const useColorStore = create<ColorState>((set) => ({
-  squareColor: "rebeccapurple", // Default premium color
+  squareColor: "rebeccapurple",
   setSquareColor: (color: string) => set({ squareColor: color }),
 }));

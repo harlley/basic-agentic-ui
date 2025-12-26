@@ -5,7 +5,6 @@ import {
   InputGroupInput,
 } from "@/components/ui/input-group";
 import { type Message, MessageBubble } from "./MessageBubble";
-import { SidebarHeader } from "./SidebarHeader";
 
 type ChatSidebarProps = {
   messages: readonly Message[];
@@ -14,8 +13,6 @@ type ChatSidebarProps = {
 export function ChatSidebar({ messages }: ChatSidebarProps) {
   return (
     <aside className="order-2 md:order-1 w-full md:w-80 lg:w-96 flex flex-col border-t md:border-t-0 md:border-r border-border/50 bg-sidebar/50 backdrop-blur-md shrink-0 h-[45vh] md:h-full transition-all duration-300">
-      <SidebarHeader />
-
       <div className="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-thin scrollbar-thumb-border">
         {messages.map((msg) => (
           <MessageBubble key={msg.id} message={msg} />

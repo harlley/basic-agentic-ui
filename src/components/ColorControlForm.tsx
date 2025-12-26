@@ -16,9 +16,9 @@ import {
   DEFAULT_SOURCE_LANG,
   isSourceLanguage,
   SOURCE_LANGUAGES,
-  type SourceLanguage,
   sourceLanguageLabel,
 } from "@/lib/translationLanguages";
+import type { SourceLanguage } from "@/lib/translatorTypes";
 
 type ColorControlFormProps = {
   onColorChange: (color: string) => void;
