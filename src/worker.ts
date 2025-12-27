@@ -64,7 +64,8 @@ const tools = [
     type: "function",
     function: {
       name: "get_square_color",
-      description: "Returns the current color of the square. Use this when the user asks 'what color is the square' or 'tell me the color'.",
+      description:
+        "Returns the current color of the square. Use this when the user asks 'what color is the square' or 'tell me the color'.",
       parameters: {
         type: "object",
         properties: {},
@@ -75,8 +76,8 @@ const tools = [
 ];
 
 // Exact prompt from functiongemma documentation
-const developerPrompt = "You are a model that can do function calling with the following functions";
-
+const developerPrompt =
+  "You are a model that can do function calling with the following functions";
 
 export type FunctionCallResult = {
   functionName: string;
@@ -86,7 +87,7 @@ export type FunctionCallResult = {
 // Parses functiongemma output: <start_function_call>call:func_name{param:<escape>value<escape>}<end_function_call>
 function parseFunctionCall(output: string): FunctionCallResult {
   const match = output.match(
-    /<start_function_call>call:(\w+)\{([^}]*)\}<end_function_call>/
+    /<start_function_call>call:(\w+)\{([^}]*)\}<end_function_call>/,
   );
 
   if (!match) return null;
@@ -95,9 +96,12 @@ function parseFunctionCall(output: string): FunctionCallResult {
   const argsStr = match[2];
 
   // Convert snake_case to camelCase for internal use
-  const functionName = funcName === "set_square_color" ? "setSquareColor"
-    : funcName === "get_square_color" ? "getSquareColor"
-    : funcName;
+  const functionName =
+    funcName === "set_square_color"
+      ? "setSquareColor"
+      : funcName === "get_square_color"
+        ? "getSquareColor"
+        : funcName;
 
   if (functionName === "getSquareColor") {
     return { functionName, args: {} };
@@ -147,11 +151,15 @@ const workerAPI = {
 
     console.log("[Worker] Input token count:", inputs.input_ids.dims[1]);
     console.log("[Worker] Input structure:", Object.keys(inputs));
-    console.log("[Worker] input_ids type:", typeof inputs.input_ids, inputs.input_ids.constructor?.name);
+    console.log(
+      "[Worker] input_ids type:",
+      typeof inputs.input_ids,
+      inputs.input_ids.constructor?.name,
+    );
 
-    // Debug: decode the input to see what the model actually receives
     try {
-      const decodedInput = tokenizer.decode(inputs.input_ids, {
+      const inputIds = Array.from(inputs.input_ids.data as Iterable<number>);
+      const decodedInput = tokenizer.decode(inputIds, {
         skip_special_tokens: false,
       });
       console.log("[Worker] Decoded input (what model sees):", decodedInput);
@@ -180,13 +188,18 @@ const workerAPI = {
 
     // If function was called, don't return text response (it's usually garbage)
     if (functionCall) {
-      console.log("[Worker] ✅ Function call successful:", functionCall.functionName);
+      console.log(
+        "[Worker] ✅ Function call successful:",
+        functionCall.functionName,
+      );
       return { functionCall };
     }
 
     // If model generated an error format, return null to trigger fallback
     if ((decoded as string).includes("<start_function_call>error:")) {
-      console.log("[Worker] ⚠️ Model generated error format, triggering fallback");
+      console.log(
+        "[Worker] ⚠️ Model generated error format, triggering fallback",
+      );
       return { functionCall: null };
     }
 
