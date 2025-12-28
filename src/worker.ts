@@ -31,7 +31,7 @@ function getModel(onProgress?: ProgressCallback) {
         progress_callback: onProgress,
       }),
       AutoModelForCausalLM.from_pretrained(MODEL_ID, {
-        dtype: "q4",
+        dtype: "fp16",
         device: "webgpu",
         progress_callback: onProgress,
       }),
