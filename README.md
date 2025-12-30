@@ -5,7 +5,7 @@ colorFrom: blue
 colorTo: purple
 sdk: static
 sdk_version: 4.1.17
-app_file: dist/index.html
+app_file: index.html
 app_build_command: npm run build
 pinned: true
 ---
