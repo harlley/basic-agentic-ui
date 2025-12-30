@@ -1,75 +1,40 @@
-import { useState } from "react";
-import { useFunctionCalling } from "@/hooks/useFunctionCalling";
-import { useColorStore } from "@/store/useColorStore";
+import { useCallback } from "react";
+import { colorTools } from "@/config/tools";
+import { useChat } from "@/hooks/useChat";
+import { useChatStore } from "@/store/useChatStore";
+import type { FunctionCallResult } from "@/types/chat";
 import { ChatSidebar } from "./ChatSidebar";
 import { ColorControlForm } from "./ColorControlForm";
 import { ColorVisualizer } from "./ColorVisualizer";
-import type { Message } from "./MessageBubble";
-
-const INITIAL_MESSAGES: Message[] = [
-  {
-    id: 1,
-    text: "Hi! I can change the square color for you. Ask me to set a color or ask what color it currently is!",
-    sender: "bot",
-  },
-];
 
 export function AgenticInterface() {
-  const { squareColor, setSquareColor } = useColorStore();
-  const { processMessage, continueWithToolResult, isProcessing, loadingStatus } =
-    useFunctionCalling();
-  const [messages, setMessages] = useState<Message[]>(INITIAL_MESSAGES);
+  const { squareColor, setSquareColor } = useChatStore();
 
-  const handleSendMessage = async (text: string) => {
-    const userMessage: Message = { id: Date.now(), text, sender: "user" };
-    setMessages((prev) => [...prev, userMessage]);
-
-    let botResponse: string;
-    try {
-      const result = await processMessage(text);
-
-      if (result.functionCall?.functionName === "setSquareColor") {
-        const color = result.functionCall.args.color as string | undefined;
-        if (color) {
-          setSquareColor(color);
-          // Get response from model after executing the function
-          botResponse = await continueWithToolResult("set_square_color", {
-            success: true,
-            color,
-          });
-        } else {
-          botResponse =
-            "I understood you want to change the color, but I couldn't determine which color. Please try again with a specific color.";
-        }
-      } else if (result.functionCall?.functionName === "getSquareColor") {
-        // Get response from model after executing the function
-        botResponse = await continueWithToolResult("get_square_color", {
-          color: squareColor,
-        });
-      } else if (result.textResponse) {
-        botResponse = result.textResponse;
-      } else {
-        botResponse =
-          "Sorry, I had trouble understanding that. Could you please try again?";
+  const handleFunctionCall = useCallback(
+    async (fc: FunctionCallResult) => {
+      if (fc?.functionName === "setSquareColor") {
+        const color = fc.args.color as string;
+        setSquareColor(color);
+        return { success: true, color };
       }
-    } catch {
-      botResponse =
-        "Sorry, there was an error processing your request. Please try again.";
-    }
+      if (fc?.functionName === "getSquareColor") {
+        return { color: squareColor };
+      }
+      return { error: "Unknown function" };
+    },
+    [squareColor, setSquareColor],
+  );
 
-    const botMessage: Message = {
-      id: Date.now() + 1,
-      text: botResponse,
-      sender: "bot",
-    };
-    setMessages((prev) => [...prev, botMessage]);
-  };
+  const { messages, sendMessage, isProcessing, loadingStatus } = useChat({
+    tools: colorTools,
+    onFunctionCall: handleFunctionCall,
+  });
 
   return (
     <div className="flex flex-col md:flex-row h-screen w-screen overflow-hidden bg-background text-foreground font-sans selection:bg-primary/30">
       <ChatSidebar
         messages={messages}
-        onSendMessage={handleSendMessage}
+        onSendMessage={sendMessage}
         isLoading={isProcessing || loadingStatus.isLoading}
         modelReady={loadingStatus.isModelReady}
         progress={loadingStatus.downloadProgress}

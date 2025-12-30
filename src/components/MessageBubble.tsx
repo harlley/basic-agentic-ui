@@ -1,15 +1,11 @@
 import { IconRobot, IconUser } from "@tabler/icons-react";
+import type { UIMessage } from "@/types/chat";
 
-type MessageSender = "user" | "bot";
-
-type Message = {
-  id: number;
-  text: string;
-  sender: MessageSender;
-};
+// Re-export for backwards compatibility
+export type Message = UIMessage;
 
 type MessageBubbleProps = {
-  message: Message;
+  message: UIMessage;
 };
 
 export function MessageBubble({ message }: MessageBubbleProps) {
@@ -41,5 +37,3 @@ export function MessageBubble({ message }: MessageBubbleProps) {
     </div>
   );
 }
-
-export type { Message, MessageSender };
