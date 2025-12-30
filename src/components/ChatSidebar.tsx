@@ -14,6 +14,7 @@ type ChatSidebarProps = {
   disabled?: boolean;
   modelReady?: boolean;
   progress?: number;
+  error?: string;
 };
 
 export function ChatSidebar({
@@ -23,9 +24,10 @@ export function ChatSidebar({
   disabled,
   modelReady = true,
   progress = 0,
+  error,
 }: ChatSidebarProps) {
   const [inputValue, setInputValue] = useState("");
-  const isDisabled = isLoading || disabled;
+  const isDisabled = isLoading || disabled || !!error;
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -68,23 +70,32 @@ export function ChatSidebar({
             </InputGroupButton>
           </InputGroup>
         </form>
-        {!modelReady && !isLoading && (
-          <p className="mt-2 text-xs text-muted-foreground text-center">
-            Note: The first message will take longer as the model needs to be loaded.
+        {error ? (
+          <p className="mt-2 text-xs text-red-500 text-center font-medium">
+            {error}
           </p>
-        )}
-        {!modelReady && isLoading && (
-          <div className="mt-2 w-full">
-            <div className="h-1.5 w-full bg-secondary/50 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-primary transition-all duration-300 ease-out"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-            <p className="text-[10px] text-muted-foreground text-center mt-1">
-              Loading model... {Math.round(progress)}%
-            </p>
-          </div>
+        ) : (
+          <>
+            {!modelReady && !isLoading && (
+              <p className="mt-2 text-xs text-muted-foreground text-center">
+                Note: The first message will take longer as the model needs to
+                be loaded.
+              </p>
+            )}
+            {!modelReady && isLoading && (
+              <div className="mt-2 w-full">
+                <div className="h-1.5 w-full bg-secondary/50 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-primary transition-all duration-300 ease-out"
+                    style={{ width: `${progress}%` }}
+                  />
+                </div>
+                <p className="text-[10px] text-muted-foreground text-center mt-1">
+                  Loading model... {Math.round(progress)}%
+                </p>
+              </div>
+            )}
+          </>
         )}
       </footer>
     </aside>

@@ -23,6 +23,14 @@ export function useFunctionCalling() {
   const [isProcessing, setIsProcessing] = useState(false);
 
   useEffect(() => {
+    if (!("gpu" in navigator)) {
+      setLoadingStatus((prev) => ({
+        ...prev,
+        error: "WebGPU is not available in your browser.",
+      }));
+      return;
+    }
+
     const worker = new Worker(new URL("../worker.ts", import.meta.url), {
       type: "module",
     });

@@ -65,6 +65,7 @@ export function AgenticInterface() {
         isLoading={isProcessing || loadingStatus.isLoading}
         modelReady={loadingStatus.isModelReady}
         progress={loadingStatus.downloadProgress}
+        error={loadingStatus.error}
       />
 
       <main className="order-1 md:order-2 flex-1 flex flex-col items-center justify-center p-8 bg-background relative overflow-hidden h-[55vh] md:h-full">
@@ -73,9 +74,12 @@ export function AgenticInterface() {
           <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
         </div>
 
-        <div className="flex flex-col items-center gap-12 z-10 w-full max-w-[320px] md:max-w-sm">
+        <div className="flex flex-col items-center gap-6 z-10 w-full max-w-[320px] md:max-w-sm">
           <ColorVisualizer color={squareColor} />
-          <ColorControlForm onColorChange={setSquareColor} />
+          <ColorControlForm
+            onColorChange={setSquareColor}
+            disabled={!!loadingStatus.error}
+          />
         </div>
       </main>
     </div>
