@@ -6,6 +6,7 @@ import {
 } from "@huggingface/transformers";
 import * as Comlink from "comlink";
 import { createStore } from "zustand/vanilla";
+import { toCamelCase, toSnakeCase } from "./lib/utils";
 
 const MODEL_ID = "onnx-community/functiongemma-270m-it-ONNX";
 
@@ -127,26 +128,21 @@ function parseFunctionCall(output: string): FunctionCallResult {
   const funcName = match[1];
   const argsStr = match[2];
 
-  // Convert snake_case to camelCase for internal use
-  const functionName =
-    funcName === "set_square_color"
-      ? "setSquareColor"
-      : funcName === "get_square_color"
-        ? "getSquareColor"
-        : funcName;
+  // Convert function name from snake_case to camelCase
+  const functionName = toCamelCase(funcName);
 
-  if (functionName === "getSquareColor") {
-    return { functionName, args: {} };
+  // Parse all arguments generically
+  // Format: key:<escape>value<escape>
+  const args: Record<string, unknown> = {};
+  const argRegex = /(\w+):<escape>([^<]*)<escape>/g;
+
+  for (const argMatch of argsStr.matchAll(argRegex)) {
+    const key = toCamelCase(argMatch[1]);
+    const value = argMatch[2].trim();
+    args[key] = value;
   }
 
-  // Parse: color:<escape>blue<escape>
-  const colorMatch = argsStr.match(/color:<escape>([^<]+)<escape>/);
-  if (colorMatch) {
-    const color = colorMatch[1].trim().toLowerCase();
-    return { functionName, args: { color } };
-  }
-
-  return null;
+  return { functionName, args };
 }
 
 const workerAPI = {
@@ -277,12 +273,7 @@ const workerAPI = {
 
     // Build the full conversation with tool result
     // Convert camelCase back to snake_case for the model
-    const snakeCaseName =
-      lastFunctionCall.functionName === "setSquareColor"
-        ? "set_square_color"
-        : lastFunctionCall.functionName === "getSquareColor"
-          ? "get_square_color"
-          : functionName;
+    const snakeCaseName = toSnakeCase(lastFunctionCall.functionName);
 
     // Build messages in the format expected by the tokenizer
     // Note: Using 'as unknown' to bypass strict typing since the tokenizer
