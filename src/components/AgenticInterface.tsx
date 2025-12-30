@@ -16,7 +16,8 @@ const INITIAL_MESSAGES: Message[] = [
 
 export function AgenticInterface() {
   const { squareColor, setSquareColor } = useColorStore();
-  const { processMessage, isProcessing, loadingStatus } = useFunctionCalling();
+  const { processMessage, continueWithToolResult, isProcessing, loadingStatus } =
+    useFunctionCalling();
   const [messages, setMessages] = useState<Message[]>(INITIAL_MESSAGES);
 
   const handleSendMessage = async (text: string) => {
@@ -31,13 +32,20 @@ export function AgenticInterface() {
         const color = result.functionCall.args.color as string | undefined;
         if (color) {
           setSquareColor(color);
-          botResponse = `Done! I've changed the square color to ${color}.`;
+          // Get response from model after executing the function
+          botResponse = await continueWithToolResult("set_square_color", {
+            success: true,
+            color,
+          });
         } else {
           botResponse =
             "I understood you want to change the color, but I couldn't determine which color. Please try again with a specific color.";
         }
       } else if (result.functionCall?.functionName === "getSquareColor") {
-        botResponse = `The current color of the square is ${squareColor}.`;
+        // Get response from model after executing the function
+        botResponse = await continueWithToolResult("get_square_color", {
+          color: squareColor,
+        });
       } else if (result.textResponse) {
         botResponse = result.textResponse;
       } else {

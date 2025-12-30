@@ -138,5 +138,20 @@ export function useFunctionCalling() {
     [initModel],
   );
 
-  return { processMessage, isProcessing, loadingStatus };
+  const continueWithToolResult = useCallback(
+    async (functionName: string, functionResult: unknown): Promise<string> => {
+      const api = apiRef.current;
+      if (!api) return "Error: Worker not available";
+
+      setIsProcessing(true);
+      try {
+        return await api.continueWithToolResult(functionName, functionResult);
+      } finally {
+        setIsProcessing(false);
+      }
+    },
+    [],
+  );
+
+  return { processMessage, continueWithToolResult, isProcessing, loadingStatus };
 }

@@ -3,7 +3,8 @@
     "allow": [
       "WebSearch",
       "Bash(npm run typecheck:*)",
-      "Bash(npm run lint:*)"
+      "Bash(npm run lint:*)",
+      "WebFetch(domain:ai.google.dev)"
     ]
   }
 }
