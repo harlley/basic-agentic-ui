@@ -35,7 +35,7 @@ export function ColorControlForm({
         <InputGroupInput
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          placeholder="write color to update"
+          placeholder="write a color. Eg. red, blue, green, etc."
           className="text-center text-lg font-medium placeholder:font-normal placeholder:opacity-50"
           disabled={disabled}
         />

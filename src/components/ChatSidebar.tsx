@@ -12,6 +12,8 @@ type ChatSidebarProps = {
   onSendMessage: (text: string) => Promise<void> | void;
   isLoading: boolean;
   disabled?: boolean;
+  modelReady?: boolean;
+  progress?: number;
 };
 
 export function ChatSidebar({
@@ -19,6 +21,8 @@ export function ChatSidebar({
   onSendMessage,
   isLoading,
   disabled,
+  modelReady = true,
+  progress = 0,
 }: ChatSidebarProps) {
   const [inputValue, setInputValue] = useState("");
   const isDisabled = isLoading || disabled;
@@ -64,6 +68,24 @@ export function ChatSidebar({
             </InputGroupButton>
           </InputGroup>
         </form>
+        {!modelReady && !isLoading && (
+          <p className="mt-2 text-xs text-muted-foreground text-center">
+            Note: The first message will take longer as the model needs to be loaded.
+          </p>
+        )}
+        {!modelReady && isLoading && (
+          <div className="mt-2 w-full">
+            <div className="h-1.5 w-full bg-secondary/50 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-primary transition-all duration-300 ease-out"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+            <p className="text-[10px] text-muted-foreground text-center mt-1">
+              Loading model... {Math.round(progress)}%
+            </p>
+          </div>
+        )}
       </footer>
     </aside>
   );
