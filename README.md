@@ -7,7 +7,7 @@ sdk: static
 sdk_version: 4.1.17
 app_file: dist/index.html
 app_build_command: npm run build
-pinned: false
+pinned: true
 ---
 
 # React + TypeScript + Vite + shadcn/ui
