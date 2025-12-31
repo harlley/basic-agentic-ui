@@ -1,17 +1,10 @@
 import * as Comlink from "comlink";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { cleanupModelResponse, parseFunctionCall } from "@/lib/functionCalling";
+import { toCamelCase, toSnakeCase } from "@/lib/utils";
 import { useChatStore } from "@/store/useChatStore";
-import {
-  parseFunctionCall,
-  cleanupModelResponse,
-} from "@/lib/functionCalling";
-import { toSnakeCase } from "@/lib/utils";
-import type {
-  ToolDefinition,
-  ChatMessage,
-  FunctionCallResult,
-} from "@/types/chat";
-import type { WorkerAPI, LoadingProgress } from "@/worker";
+import type { ChatMessage, ClientFunction } from "@/types/chat";
+import type { LoadingProgress, WorkerAPI } from "@/worker";
 
 const DEVELOPER_PROMPT =
   "You are a model that can do function calling with the following functions";
@@ -24,12 +17,7 @@ export type LoadingStatus = {
   error?: string;
 };
 
-type UseChatOptions = {
-  tools: ToolDefinition[];
-  onFunctionCall?: (fc: FunctionCallResult) => Promise<unknown>;
-};
-
-export function useChat({ tools, onFunctionCall }: UseChatOptions) {
+export function useChat(functions: ClientFunction[]) {
   const workerRef = useRef<Worker | null>(null);
   const apiRef = useRef<Comlink.Remote<WorkerAPI> | null>(null);
   const initializationPromiseRef = useRef<Promise<void> | null>(null);
@@ -42,6 +30,16 @@ export function useChat({ tools, onFunctionCall }: UseChatOptions) {
   const [isProcessing, setIsProcessing] = useState(false);
 
   const { messages, addMessage, setConversation } = useChatStore();
+
+  const tools = useMemo(() => functions.map((fn) => fn.tool), [functions]);
+
+  const functionsByName = useMemo(() => {
+    const map = new Map<string, ClientFunction>();
+    for (const fn of functions) {
+      map.set(toCamelCase(fn.tool.function.name), fn);
+    }
+    return map;
+  }, [functions]);
 
   // Initialize worker
   useEffect(() => {
@@ -206,23 +204,25 @@ export function useChat({ tools, onFunctionCall }: UseChatOptions) {
         const rawOutput = await api.generate(mlMessages, tools);
         const functionCall = parseFunctionCall(rawOutput || "");
 
-        if (functionCall && onFunctionCall) {
+        if (functionCall) {
+          const fn = functionsByName.get(functionCall.functionName);
+          if (!fn) {
+            addMessage({
+              id: Date.now(),
+              text: `Unknown function: ${functionCall.functionName}`,
+              sender: "bot",
+            });
+            return;
+          }
           // Save conversation state for continuation
           setConversation(mlMessages, functionCall);
 
           // Execute function and get result
-          const result = await onFunctionCall(functionCall);
+          const result = await fn.handler(functionCall.args);
 
           // Continue conversation with result
           const response = await continueWithResult(result);
           addMessage({ id: Date.now(), text: response, sender: "bot" });
-        } else if (functionCall) {
-          // Function call but no handler
-          addMessage({
-            id: Date.now(),
-            text: "Function call detected but no handler provided.",
-            sender: "bot",
-          });
         } else {
           // No function call, just text response
           const response = cleanupModelResponse(rawOutput || "");
@@ -234,7 +234,7 @@ export function useChat({ tools, onFunctionCall }: UseChatOptions) {
     },
     [
       tools,
-      onFunctionCall,
+      functionsByName,
       addMessage,
       setConversation,
       continueWithResult,

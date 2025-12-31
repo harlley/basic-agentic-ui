@@ -1,5 +1,9 @@
 import type { ToolDefinition } from "@/types/chat";
 
+type SetSquareColorContext = {
+  setSquareColor: (color: string) => void;
+};
+
 export const setSquareColorTool: ToolDefinition = {
   type: "function",
   function: {
@@ -17,3 +21,13 @@ export const setSquareColorTool: ToolDefinition = {
     },
   },
 };
+
+export function handleSetSquareColor(
+  args: Record<string, unknown>,
+  ctx: SetSquareColorContext,
+) {
+  const { color } = args;
+  if (typeof color !== "string" || !color) return { error: "Invalid args" };
+  ctx.setSquareColor(color);
+  return { success: true, color };
+}

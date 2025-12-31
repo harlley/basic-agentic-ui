@@ -19,6 +19,11 @@ export type ToolDefinition = {
   };
 };
 
+export type ClientFunction = {
+  tool: ToolDefinition;
+  handler: (args: Record<string, unknown>) => Promise<unknown> | unknown;
+};
+
 export type ChatMessage =
   | { role: "developer" | "user"; content: string }
   | { role: "assistant"; content?: string; tool_calls?: ToolCall[] }

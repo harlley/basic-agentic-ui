@@ -1,5 +1,9 @@
 import type { ToolDefinition } from "@/types/chat";
 
+type GetSquareColorContext = {
+  color: string;
+};
+
 export const getSquareColorTool: ToolDefinition = {
   type: "function",
   function: {
@@ -13,3 +17,7 @@ export const getSquareColorTool: ToolDefinition = {
     },
   },
 };
+
+export function handleGetSquareColor(ctx: GetSquareColorContext) {
+  return { color: ctx.color };
+}
