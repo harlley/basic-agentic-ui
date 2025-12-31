@@ -1,7 +1,7 @@
 import { useCallback } from "react";
-import { colorTools } from "@/config/tools";
 import { useChat } from "@/hooks/useChat";
 import { useChatStore } from "@/store/useChatStore";
+import { getSquareColorTool, setSquareColorTool } from "@/tools";
 import type { FunctionCallResult } from "@/types/chat";
 import { ChatSidebar } from "./ChatSidebar";
 import { ColorControlForm } from "./ColorControlForm";
@@ -26,7 +26,7 @@ export function AgenticInterface() {
   );
 
   const { messages, sendMessage, isProcessing, loadingStatus } = useChat({
-    tools: colorTools,
+    tools: [setSquareColorTool, getSquareColorTool],
     onFunctionCall: handleFunctionCall,
   });
 
