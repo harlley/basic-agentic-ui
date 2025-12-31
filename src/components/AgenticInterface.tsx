@@ -1,5 +1,5 @@
 import { useChat } from "@/hooks/useChat";
-import { useChatStore } from "@/store/useChatStore";
+import { useSquareStore } from "@/store/useSquareStore";
 import {
   getSquareColorTool,
   handleGetSquareColor,
@@ -11,17 +11,16 @@ import { ColorControlForm } from "./ColorControlForm";
 import { ColorVisualizer } from "./ColorVisualizer";
 
 export function AgenticInterface() {
-  const { squareColor, setSquareColor } = useChatStore();
+  const { squareColor, setSquareColor } = useSquareStore();
 
   const { messages, sendMessage, isProcessing, loadingStatus } = useChat([
     {
       tool: setSquareColorTool,
-      handler: (args) => handleSetSquareColor(args, { setSquareColor }),
+      handler: handleSetSquareColor,
     },
     {
       tool: getSquareColorTool,
-      handler: () =>
-        handleGetSquareColor({ color: useChatStore.getState().squareColor }),
+      handler: handleGetSquareColor,
     },
   ]);
 

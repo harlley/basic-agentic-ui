@@ -1,8 +1,5 @@
+import { useSquareStore } from "@/store/useSquareStore";
 import type { ToolDefinition } from "@/types/chat";
-
-type GetSquareColorContext = {
-  color: string;
-};
 
 export const getSquareColorTool: ToolDefinition = {
   type: "function",
@@ -18,6 +15,6 @@ export const getSquareColorTool: ToolDefinition = {
   },
 };
 
-export function handleGetSquareColor(ctx: GetSquareColorContext) {
-  return { color: ctx.color };
+export function handleGetSquareColor() {
+  return { color: useSquareStore.getState().squareColor };
 }
