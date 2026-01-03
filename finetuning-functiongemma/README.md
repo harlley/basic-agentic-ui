@@ -31,10 +31,10 @@ FunctionGemma is a base model that requires fine-tuning to work well with custom
 ```
 finetuning-functiongemma/
 ├── README.md                     # This file
-├── finetune_functiongemma.ipynb  # Main notebook
-├── dataset/
-│   └── square_color_dataset.json # Training dataset
-└── export_to_onnx.py             # Script to convert to ONNX
+├── finetune_functiongemma.ipynb  # Fine-tuning notebook
+├── export_to_onnx.ipynb          # ONNX export notebook
+└── dataset/
+    └── square_color_dataset.json # Training dataset
 ```
 
 ## 🎯 Target Functions
