@@ -1,0 +1,34 @@
+task: llm-sft
+base_model: google/functiongemma-270m-it
+project_name: functiongemma-square-color-autotrain
+log: tensorboard
+backend: local
+
+data:
+  path: dataset/
+  train_split: train
+  valid_split: null
+  chat_template: tokenizer
+  column_mapping:
+    text_column: messages
+
+params:
+  block_size: 512
+  model_max_length: 512
+  epochs: 8
+  batch_size: 4
+  lr: 5e-5
+  peft: false
+  quantization: null
+  padding: right
+  optimizer: adamw_torch
+  scheduler: constant
+  gradient_accumulation: 1
+  mixed_precision: bf16
+  merge_adapter: false
+
+hub:
+  username: [HF USERNAME]
+  token: [HF TOKEN]
+  push_to_hub: true
+
