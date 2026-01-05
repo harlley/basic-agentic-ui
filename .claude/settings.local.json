@@ -5,7 +5,10 @@
       "Bash(npm run typecheck:*)",
       "Bash(npm run lint:*)",
       "WebFetch(domain:ai.google.dev)",
-      "WebFetch(domain:developers.googleblog.com)"
+      "WebFetch(domain:developers.googleblog.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:gist.githubusercontent.com)"
     ]
   }
 }
