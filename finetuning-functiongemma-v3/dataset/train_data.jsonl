@@ -1,0 +1,193 @@
+{"prompt": "Change the color to blue", "completion": "<start_function_call>call:set_square_color{color:<escape>blue<escape>}<end_function_call>"}
+{"prompt": "What color is the square?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Make it red", "completion": "<start_function_call>call:set_square_color{color:<escape>red<escape>}<end_function_call>"}
+{"prompt": "Tell me the current color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Set the square to green", "completion": "<start_function_call>call:set_square_color{color:<escape>green<escape>}<end_function_call>"}
+{"prompt": "Which color is it?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "I want the square to be purple", "completion": "<start_function_call>call:set_square_color{color:<escape>purple<escape>}<end_function_call>"}
+{"prompt": "What's the color right now?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Turn it yellow", "completion": "<start_function_call>call:set_square_color{color:<escape>yellow<escape>}<end_function_call>"}
+{"prompt": "Can you tell me what color the square is?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Paint it orange", "completion": "<start_function_call>call:set_square_color{color:<escape>orange<escape>}<end_function_call>"}
+{"prompt": "I'd like to know the current color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Switch to pink", "completion": "<start_function_call>call:set_square_color{color:<escape>pink<escape>}<end_function_call>"}
+{"prompt": "What is the square's color?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Make the square cyan", "completion": "<start_function_call>call:set_square_color{color:<escape>cyan<escape>}<end_function_call>"}
+{"prompt": "Show me the color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "I want it to be white", "completion": "<start_function_call>call:set_square_color{color:<escape>white<escape>}<end_function_call>"}
+{"prompt": "What color is it set to?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Change to black", "completion": "<start_function_call>call:set_square_color{color:<escape>black<escape>}<end_function_call>"}
+{"prompt": "Tell me the color of the square", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Set it to teal", "completion": "<start_function_call>call:set_square_color{color:<escape>teal<escape>}<end_function_call>"}
+{"prompt": "Query the current color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Make it magenta", "completion": "<start_function_call>call:set_square_color{color:<escape>magenta<escape>}<end_function_call>"}
+{"prompt": "Get the color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "I'd like the square to be lime", "completion": "<start_function_call>call:set_square_color{color:<escape>lime<escape>}<end_function_call>"}
+{"prompt": "Read the current color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Update the color to navy", "completion": "<start_function_call>call:set_square_color{color:<escape>navy<escape>}<end_function_call>"}
+{"prompt": "Check the square color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Set color to coral", "completion": "<start_function_call>call:set_square_color{color:<escape>coral<escape>}<end_function_call>"}
+{"prompt": "What color do we have?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Put it in violet", "completion": "<start_function_call>call:set_square_color{color:<escape>violet<escape>}<end_function_call>"}
+{"prompt": "Display the color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Color it gold", "completion": "<start_function_call>call:set_square_color{color:<escape>gold<escape>}<end_function_call>"}
+{"prompt": "Fetch the current color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Apply salmon color", "completion": "<start_function_call>call:set_square_color{color:<escape>salmon<escape>}<end_function_call>"}
+{"prompt": "Return the color value", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Use turquoise", "completion": "<start_function_call>call:set_square_color{color:<escape>turquoise<escape>}<end_function_call>"}
+{"prompt": "What's the current state of the color?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Modify the square to crimson", "completion": "<start_function_call>call:set_square_color{color:<escape>crimson<escape>}<end_function_call>"}
+{"prompt": "Retrieve the square's color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Please change to blue", "completion": "<start_function_call>call:set_square_color{color:<escape>blue<escape>}<end_function_call>"}
+{"prompt": "Could you tell me the color?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "I need it red", "completion": "<start_function_call>call:set_square_color{color:<escape>red<escape>}<end_function_call>"}
+{"prompt": "What is the current color?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Let's make it green", "completion": "<start_function_call>call:set_square_color{color:<escape>green<escape>}<end_function_call>"}
+{"prompt": "Can you get the color?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Go with purple", "completion": "<start_function_call>call:set_square_color{color:<escape>purple<escape>}<end_function_call>"}
+{"prompt": "I want to know the color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "How about yellow?", "completion": "<start_function_call>call:set_square_color{color:<escape>yellow<escape>}<end_function_call>"}
+{"prompt": "Give me the color info", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Try orange", "completion": "<start_function_call>call:set_square_color{color:<escape>orange<escape>}<end_function_call>"}
+{"prompt": "Report the current color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Let's go with pink", "completion": "<start_function_call>call:set_square_color{color:<escape>pink<escape>}<end_function_call>"}
+{"prompt": "What's the square showing?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Change it to brown", "completion": "<start_function_call>call:set_square_color{color:<escape>brown<escape>}<end_function_call>"}
+{"prompt": "Tell me what color it is", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Set to silver", "completion": "<start_function_call>call:set_square_color{color:<escape>silver<escape>}<end_function_call>"}
+{"prompt": "Check what color the square is", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Make the color maroon", "completion": "<start_function_call>call:set_square_color{color:<escape>maroon<escape>}<end_function_call>"}
+{"prompt": "Show current color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "blue", "completion": "<start_function_call>call:set_square_color{color:<escape>blue<escape>}<end_function_call>"}
+{"prompt": "red please", "completion": "<start_function_call>call:set_square_color{color:<escape>red<escape>}<end_function_call>"}
+{"prompt": "green!", "completion": "<start_function_call>call:set_square_color{color:<escape>green<escape>}<end_function_call>"}
+{"prompt": "color?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "what color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "current color?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Set the square color to indigo", "completion": "<start_function_call>call:set_square_color{color:<escape>indigo<escape>}<end_function_call>"}
+{"prompt": "I want indigo", "completion": "<start_function_call>call:set_square_color{color:<escape>indigo<escape>}<end_function_call>"}
+{"prompt": "Make it olive", "completion": "<start_function_call>call:set_square_color{color:<escape>olive<escape>}<end_function_call>"}
+{"prompt": "Switch the color to beige", "completion": "<start_function_call>call:set_square_color{color:<escape>beige<escape>}<end_function_call>"}
+{"prompt": "Can you change it to lavender?", "completion": "<start_function_call>call:set_square_color{color:<escape>lavender<escape>}<end_function_call>"}
+{"prompt": "What's the color of the square right now?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "I'm curious about the current color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Tell me what the square looks like", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Please set it to aqua", "completion": "<start_function_call>call:set_square_color{color:<escape>aqua<escape>}<end_function_call>"}
+{"prompt": "Could you make it peach?", "completion": "<start_function_call>call:set_square_color{color:<escape>peach<escape>}<end_function_call>"}
+{"prompt": "Would you change the color to mint?", "completion": "<start_function_call>call:set_square_color{color:<escape>mint<escape>}<end_function_call>"}
+{"prompt": "I'd appreciate it if you set it to ruby", "completion": "<start_function_call>call:set_square_color{color:<escape>ruby<escape>}<end_function_call>"}
+{"prompt": "Can I get the color please?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Would you mind telling me the color?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "I need to know the current color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Let me know the square's color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "sky blue", "completion": "<start_function_call>call:set_square_color{color:<escape>sky blue<escape>}<end_function_call>"}
+{"prompt": "dark green", "completion": "<start_function_call>call:set_square_color{color:<escape>dark green<escape>}<end_function_call>"}
+{"prompt": "light blue", "completion": "<start_function_call>call:set_square_color{color:<escape>light blue<escape>}<end_function_call>"}
+{"prompt": "dark red", "completion": "<start_function_call>call:set_square_color{color:<escape>dark red<escape>}<end_function_call>"}
+{"prompt": "bright yellow", "completion": "<start_function_call>call:set_square_color{color:<escape>bright yellow<escape>}<end_function_call>"}
+{"prompt": "pale pink", "completion": "<start_function_call>call:set_square_color{color:<escape>pale pink<escape>}<end_function_call>"}
+{"prompt": "forest green", "completion": "<start_function_call>call:set_square_color{color:<escape>forest green<escape>}<end_function_call>"}
+{"prompt": "ocean blue", "completion": "<start_function_call>call:set_square_color{color:<escape>ocean blue<escape>}<end_function_call>"}
+{"prompt": "Set square to red", "completion": "<start_function_call>call:set_square_color{color:<escape>red<escape>}<end_function_call>"}
+{"prompt": "Square color = blue", "completion": "<start_function_call>call:set_square_color{color:<escape>blue<escape>}<end_function_call>"}
+{"prompt": "color: green", "completion": "<start_function_call>call:set_square_color{color:<escape>green<escape>}<end_function_call>"}
+{"prompt": "get color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "show color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "read color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Yo make it blue", "completion": "<start_function_call>call:set_square_color{color:<escape>blue<escape>}<end_function_call>"}
+{"prompt": "Hey change to red", "completion": "<start_function_call>call:set_square_color{color:<escape>red<escape>}<end_function_call>"}
+{"prompt": "Sup whats the color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "yo color?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "gimme yellow", "completion": "<start_function_call>call:set_square_color{color:<escape>yellow<escape>}<end_function_call>"}
+{"prompt": "hit me with that purple", "completion": "<start_function_call>call:set_square_color{color:<escape>purple<escape>}<end_function_call>"}
+{"prompt": "gonna need orange on that", "completion": "<start_function_call>call:set_square_color{color:<escape>orange<escape>}<end_function_call>"}
+{"prompt": "Just tell me the color already", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Give me green now", "completion": "<start_function_call>call:set_square_color{color:<escape>green<escape>}<end_function_call>"}
+{"prompt": "What color are we looking at?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "I would like to request the square be changed to azure", "completion": "<start_function_call>call:set_square_color{color:<escape>azure<escape>}<end_function_call>"}
+{"prompt": "Please kindly update the color to burgundy", "completion": "<start_function_call>call:set_square_color{color:<escape>burgundy<escape>}<end_function_call>"}
+{"prompt": "If you could, please inform me of the current color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "I would appreciate knowing what color the square is", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "May I request that you change it to periwinkle?", "completion": "<start_function_call>call:set_square_color{color:<escape>periwinkle<escape>}<end_function_call>"}
+{"prompt": "Could you kindly set the color to chartreuse?", "completion": "<start_function_call>call:set_square_color{color:<escape>chartreuse<escape>}<end_function_call>"}
+{"prompt": "plz blue", "completion": "<start_function_call>call:set_square_color{color:<escape>blue<escape>}<end_function_call>"}
+{"prompt": "pls red", "completion": "<start_function_call>call:set_square_color{color:<escape>red<escape>}<end_function_call>"}
+{"prompt": "thx color?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "ty what color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "k make it green", "completion": "<start_function_call>call:set_square_color{color:<escape>green<escape>}<end_function_call>"}
+{"prompt": "Set the display color to amber", "completion": "<start_function_call>call:set_square_color{color:<escape>amber<escape>}<end_function_call>"}
+{"prompt": "Update display to scarlet", "completion": "<start_function_call>call:set_square_color{color:<escape>scarlet<escape>}<end_function_call>"}
+{"prompt": "Change display color to emerald", "completion": "<start_function_call>call:set_square_color{color:<escape>emerald<escape>}<end_function_call>"}
+{"prompt": "What is the display showing?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Get display color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Show display color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Alright, set it to cerulean", "completion": "<start_function_call>call:set_square_color{color:<escape>cerulean<escape>}<end_function_call>"}
+{"prompt": "OK so make it tangerine", "completion": "<start_function_call>call:set_square_color{color:<escape>tangerine<escape>}<end_function_call>"}
+{"prompt": "Fine, change to mauve", "completion": "<start_function_call>call:set_square_color{color:<escape>mauve<escape>}<end_function_call>"}
+{"prompt": "Sure, what's the color?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Yeah tell me the color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "So what color is it?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "And the color is?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Make it #FF0000", "completion": "<start_function_call>call:set_square_color{color:<escape>#FF0000<escape>}<end_function_call>"}
+{"prompt": "Set to #00FF00", "completion": "<start_function_call>call:set_square_color{color:<escape>#00FF00<escape>}<end_function_call>"}
+{"prompt": "Change to #0000FF", "completion": "<start_function_call>call:set_square_color{color:<escape>#0000FF<escape>}<end_function_call>"}
+{"prompt": "Use hex #FFFF00", "completion": "<start_function_call>call:set_square_color{color:<escape>#FFFF00<escape>}<end_function_call>"}
+{"prompt": "Apply #FF00FF", "completion": "<start_function_call>call:set_square_color{color:<escape>#FF00FF<escape>}<end_function_call>"}
+{"prompt": "Set to rgb red", "completion": "<start_function_call>call:set_square_color{color:<escape>red<escape>}<end_function_call>"}
+{"prompt": "First, tell me what color it is", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Before anything, what's the color?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "To start, show me the current color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Now change it to slate", "completion": "<start_function_call>call:set_square_color{color:<escape>slate<escape>}<end_function_call>"}
+{"prompt": "Then make it ivory", "completion": "<start_function_call>call:set_square_color{color:<escape>ivory<escape>}<end_function_call>"}
+{"prompt": "After that set it to khaki", "completion": "<start_function_call>call:set_square_color{color:<escape>khaki<escape>}<end_function_call>"}
+{"prompt": "Can you check the color for me?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Just checking - what color is it?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Quick question - the color?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "One thing - change to plum", "completion": "<start_function_call>call:set_square_color{color:<escape>plum<escape>}<end_function_call>"}
+{"prompt": "Real quick - make it rust", "completion": "<start_function_call>call:set_square_color{color:<escape>rust<escape>}<end_function_call>"}
+{"prompt": "BTW set it to jade", "completion": "<start_function_call>call:set_square_color{color:<escape>jade<escape>}<end_function_call>"}
+{"prompt": "FYI the color should be sapphire", "completion": "<start_function_call>call:set_square_color{color:<escape>sapphire<escape>}<end_function_call>"}
+{"prompt": "lmk the color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "hmu with the color info", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "need the color asap", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "color pls", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Hmm make it rose", "completion": "<start_function_call>call:set_square_color{color:<escape>rose<escape>}<end_function_call>"}
+{"prompt": "Ugh just set it to tan", "completion": "<start_function_call>call:set_square_color{color:<escape>tan<escape>}<end_function_call>"}
+{"prompt": "Wow change to electric blue", "completion": "<start_function_call>call:set_square_color{color:<escape>electric blue<escape>}<end_function_call>"}
+{"prompt": "Ooh make it neon green", "completion": "<start_function_call>call:set_square_color{color:<escape>neon green<escape>}<end_function_call>"}
+{"prompt": "Nice! What color?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Cool, show me the color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Awesome, what's the color now?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Great, tell me the color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "I command you to set it to fuchsia", "completion": "<start_function_call>call:set_square_color{color:<escape>fuchsia<escape>}<end_function_call>"}
+{"prompt": "You must change it to cobalt", "completion": "<start_function_call>call:set_square_color{color:<escape>cobalt<escape>}<end_function_call>"}
+{"prompt": "I order you to make it bronze", "completion": "<start_function_call>call:set_square_color{color:<escape>bronze<escape>}<end_function_call>"}
+{"prompt": "You are required to tell me the color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "You shall inform me of the current color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "I hereby request the color information", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "change blue", "completion": "<start_function_call>call:set_square_color{color:<escape>blue<escape>}<end_function_call>"}
+{"prompt": "set red", "completion": "<start_function_call>call:set_square_color{color:<escape>red<escape>}<end_function_call>"}
+{"prompt": "make green", "completion": "<start_function_call>call:set_square_color{color:<escape>green<escape>}<end_function_call>"}
+{"prompt": "do yellow", "completion": "<start_function_call>call:set_square_color{color:<escape>yellow<escape>}<end_function_call>"}
+{"prompt": "try purple", "completion": "<start_function_call>call:set_square_color{color:<escape>purple<escape>}<end_function_call>"}
+{"prompt": "use orange", "completion": "<start_function_call>call:set_square_color{color:<escape>orange<escape>}<end_function_call>"}
+{"prompt": "whats the color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "tell color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "get current color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "show what color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Want blue on the square", "completion": "<start_function_call>call:set_square_color{color:<escape>blue<escape>}<end_function_call>"}
+{"prompt": "Need the square red", "completion": "<start_function_call>call:set_square_color{color:<escape>red<escape>}<end_function_call>"}
+{"prompt": "Gotta have green", "completion": "<start_function_call>call:set_square_color{color:<escape>green<escape>}<end_function_call>"}
+{"prompt": "Wanna see yellow", "completion": "<start_function_call>call:set_square_color{color:<escape>yellow<escape>}<end_function_call>"}
+{"prompt": "Curious what color is showing", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Wondering about the color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Interested in the current color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Looking to know the color", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "The square needs to be steel blue", "completion": "<start_function_call>call:set_square_color{color:<escape>steel blue<escape>}<end_function_call>"}
+{"prompt": "I think hot pink would be nice", "completion": "<start_function_call>call:set_square_color{color:<escape>hot pink<escape>}<end_function_call>"}
+{"prompt": "How about sea green?", "completion": "<start_function_call>call:set_square_color{color:<escape>sea green<escape>}<end_function_call>"}
+{"prompt": "Maybe midnight blue?", "completion": "<start_function_call>call:set_square_color{color:<escape>midnight blue<escape>}<end_function_call>"}
+{"prompt": "Thinking about the color, what is it?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Speaking of colors, which one is active?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "On the topic of the square, what color?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
+{"prompt": "Regarding the display, what's the color?", "completion": "<start_function_call>call:get_square_color{}<end_function_call>"}
