@@ -23,3 +23,23 @@ jobs:
           name: dist
           path: dist/
           retention-days: 1
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Deploy to HF Space
+        uses: nateraw/huggingface-sync-action@v0.0.5
+        with:
+          repo: spaces/harlley/basic-agentic-ui
+          repo_type: space
+          branch: main
+          commit_message: "Deploy"
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
