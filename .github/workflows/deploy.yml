@@ -33,12 +33,22 @@ jobs:
           name: dist
           path: dist/
 
-      - name: Deploy to HF Space
-        uses: nateraw/huggingface-sync-action@v0.0.5
-        with:
-          repo: spaces/harlley/basic-agentic-ui
-          repo_type: space
-          branch: main
-          commit_message: "Deploy"
+      - name: Clone HF Space repo
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          git clone https://harlley:$HF_TOKEN@huggingface.co/spaces/harlley/basic-agentic-ui hf-space
+          cd hf-space
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Deploy to HF Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          cd hf-space
+          rm -rf *
+          cp -r ../dist/* .
+          git add .
+          git commit -m "Deploy $(date -u +"%Y-%m-%dT%H:%M:%SZ")" || exit 0
+          git push https://harlley:$HF_TOKEN@huggingface.co/spaces/harlley/basic-agentic-ui main
