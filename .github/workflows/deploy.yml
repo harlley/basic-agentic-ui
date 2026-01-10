@@ -33,22 +33,23 @@ jobs:
           name: dist
           path: dist/
 
-      - name: Clone HF Space repo
-        env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: |
-          git clone https://harlley:$HF_TOKEN@huggingface.co/spaces/harlley/basic-agentic-ui hf-space
-          cd hf-space
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Install Python and HF CLI
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
       - name: Deploy to HF Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          cd hf-space
-          rm -rf *
-          cp -r ../dist/* .
-          git add .
-          git commit -m "Deploy $(date -u +"%Y-%m-%dT%H:%M:%SZ")" || exit 0
-          git push https://harlley:$HF_TOKEN@huggingface.co/spaces/harlley/basic-agentic-ui main
+          pip install -U huggingface_hub
+          python -c "
+          from huggingface_hub import HfApi
+          api = HfApi()
+          api.upload_folder(
+              folder_path='dist',
+              repo_id='spaces/harlley/basic-agentic-ui',
+              repo_type='space',
+              commit_message='Deploy $(date -u +\"%Y-%m-%dT%H:%M:%SZ\")'
+          )
+          "
