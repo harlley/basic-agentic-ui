@@ -34,7 +34,7 @@ A demonstration application that runs an ML model for function calling directly 
   |  |  AgenticInterface | <----------> |  Transformers.js   |  |
   |  |                   |              |                    |  |
   |  |  - ChatSidebar    |              |  FunctionGemma-270M|  |
-  |  |  - ColorVisualizer|              |  (WebGPU, q4)      |  |
+  |  |  - ColorVisualizer|              |  (WebGPU)          |  |
   |  |                   |              |                    |  |
   |  +--------+----------+              +--------------------+  |
   |           |                                                 |
@@ -173,3 +173,7 @@ npm run format
 
 - Browser with WebGPU support (Chrome 113+, Edge 113+)
 - ~270MB download for the model on first run
+
+## TODO
+
+- [ ] Fine-tune the model to improve function calling accuracy
