@@ -144,7 +144,7 @@ src/
 | UI Components | shadcn/ui |
 | State | Zustand |
 | ML Runtime | Hugging Face Transformers.js |
-| Model | FunctionGemma-270M (WebGPU, 4-bit quantization) |
+| Model | FunctionGemma-270M (WebGPU) |
 | Worker Communication | Comlink |
 
 ## Development
